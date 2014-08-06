@@ -26,7 +26,7 @@ class HistorySave(sublime_plugin.EventListener):
                 # get 'target' folder path
                 target_path = os.path.join(main_path, "target", "")
                 # get all folders in 'target'
-                target_folders = os.walk(os.path.dirname(target_path)).next()[1]
+                target_folders = next(os.walk(os.path.dirname(target_path)))[1]
                 # find '*-SNAPSHOT' folder into which file will be copied
                 snapshot_folder = next((x for x in target_folders if "SNAPSHOT" in x), None)
                 if snapshot_folder != None:
